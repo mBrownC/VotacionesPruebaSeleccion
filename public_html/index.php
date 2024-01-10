@@ -1,5 +1,5 @@
     <?php
-    $mysqli = include_once('C:\xampp\htdocs\VotacionPrueba\backend\conexion.php');
+    $mysqli = include_once('..backend\conexion.php');
     // verificacion de conexión exitosa a la base
     if ($mysqli instanceof mysqli) {
         $comunas = $mysqli->query('SELECT * FROM region');
