@@ -1,5 +1,6 @@
     <?php
     $mysqli = include_once('C:\xampp\htdocs\VotacionPrueba\backend\conexion.php');
+    // verificacion de conexión exitosa a la base
     if ($mysqli instanceof mysqli) {
         $comunas = $mysqli->query('SELECT * FROM region');
         $candidatos = $mysqli->query('SELECT * FROM candidato');
@@ -20,6 +21,7 @@
 
     <body>
         <div class="container">
+            <!-- inicio del formulario -->
             <h1>FORMULARIO DE VOTACION</h1>
             <form action="envioForm.php" class="formulario" id="formulario" method="post">
                 <div class="ingreso">
@@ -39,6 +41,7 @@
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" required>
                     </div>
+                    <!-- inicio de selects anidados -->
                     <div class="labelInputs">
                         <label for="region">Región</label>
                         <select id="region" name="region" required>
@@ -74,6 +77,7 @@
                             ?>
                         </select>
                     </div>
+                    <!-- grupo de check boxs -->
                     <div class="labelInputs">
                         <label>Como se enteró de Nosotros</label>
                         <div class="opciones">

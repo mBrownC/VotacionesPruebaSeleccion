@@ -1,9 +1,9 @@
 <?php
-echo "Script ejecutándose correctamente.";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include_once('C:\xampp\htdocs\VotacionPrueba\backend\conexion.php');
     if ($mysqli instanceof mysqli) {
+        // verificacion si el rut ya voto antes 
         $rut = $_POST['rut'];
         $sqlCheck = "SELECT id FROM votantes WHERE rut = ?";
         $stmtCheck = $mysqli->prepare($sqlCheck);
@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($resultCheck->num_rows > 0) {
             echo "<script>alert('Ya has votado con este RUT. No se permite votar más de una vez.'); window.location.href = 'index.php';</script>";
         } else {
+            // si no ha votado inserta los datos a la base
             $nombre = $_POST['nombre'];
             $alias = $_POST['alias'];
             $email = $_POST['email'];
@@ -27,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmtInsert = $mysqli->prepare($sqlInsert);
             $stmtInsert->bind_param("ssisiiiii", $nombre, $rut, $comuna, $alias, $candidato, $web, $tv, $redes, $amigo);
+            // mensajes de votacion exitosa o erronea
             if ($stmtInsert->execute()) {
                 echo "<script>alert('Votación exitosa.'); window.location.href = 'index.php';</script>";
             } else {
