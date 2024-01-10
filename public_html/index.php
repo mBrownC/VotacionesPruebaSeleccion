@@ -95,7 +95,8 @@
                             </div>
                         </div>
                         
-                    </div><div id="mensajeCheckbox" style="color: red;"></div>
+                    </div>
+                    <div id="mensajeCheckbox" style="color: red;"></div>
                 </div>
                 <button type="submit">Votar</button>
             </form>

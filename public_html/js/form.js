@@ -49,18 +49,30 @@ const validarFormulario = (evento) => {
     }
 }
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Script cargado correctamente.');
+
     const checkBoxes = document.querySelectorAll('input[type="checkbox"]');
+    const submitButton = document.querySelector('button[type="submit"]');
+    const mensajeCheckbox = document.getElementById('mensajeCheckbox');
+    const formulario = document.getElementById('formulario');
+
+    formulario.addEventListener('submit', (evento) => {
+        evento.preventDefault();
+        console.log('Formulario enviado con éxito.');
+        // Agrega aquí cualquier lógica adicional que necesites antes de enviar el formulario
+    });
+
     checkBoxes.forEach(checkbox => {
         checkbox.addEventListener('change', () => {
             const checkBoxChecked = document.querySelectorAll('input[type="checkbox"]:checked');
-            if (checkBoxChecked.length >= 2) {
-                console.log("Se han seleccionado al menos dos checkboxes. Puedes enviar el formulario.");
-            } else {
-                console.log("Selecciona al menos dos checkboxes para poder enviar el formulario.");
-            }
+            submitButton.disabled = checkBoxChecked.length < 2;
+            mensajeCheckbox.textContent = checkBoxChecked.length < 2
+                ? 'Selecciona al menos dos opciones para poder enviar el formulario.'
+                : '';
         });
     });
 });
+
 inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario)
     input.addEventListener('blur', validarFormulario)
