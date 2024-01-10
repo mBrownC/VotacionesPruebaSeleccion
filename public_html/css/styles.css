@@ -89,3 +89,9 @@ button[type="submit"]:hover {
     font-weight: bold;
 }
 
+label span{
+    color: gray;
+}
+input:checked + label span {
+    color: black;
+}

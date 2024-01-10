@@ -48,11 +48,21 @@ const validarFormulario = (evento) => {
             break;
     }
 }
+document.addEventListener('DOMContentLoaded', () => {
+    const checkBoxes = document.querySelectorAll('input[type="checkbox"]');
+    checkBoxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            const checkBoxChecked = document.querySelectorAll('input[type="checkbox"]:checked');
+            if (checkBoxChecked.length >= 2) {
+                console.log("Se han seleccionado al menos dos checkboxes. Puedes enviar el formulario.");
+            } else {
+                console.log("Selecciona al menos dos checkboxes para poder enviar el formulario.");
+            }
+        });
+    });
+});
 inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario)
     input.addEventListener('blur', validarFormulario)
 }
 )
-formulario.addEventListener('submit', (evento) => {
-    evento.preventDefault()
-})

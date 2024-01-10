@@ -21,27 +21,27 @@
     <body>
         <div class="container">
             <h1>FORMULARIO DE VOTACION</h1>
-            <form action class="formulario" id="formulario">
+            <form action="envioForm.php" class="formulario" id="formulario" method="post">
                 <div class="ingreso">
-                    <div class="labelInputs" id="labelInputsNombre">
+                    <div class="labelInputs" id="labelInputsNombre" >
                         <label for="nombre">Nombre y Apellido</label>
-                        <input type="text" id="nombre" name="nombre">
+                        <input type="text" id="nombre" name="nombre" required>
                     </div>
                     <div class="labelInputs" id="labelInputsAlias">
                         <label for="alias">Alias</label>
-                        <input type="text" id="alias" name="alias">
+                        <input type="text" id="alias" name="alias" required>
                     </div>
                     <div class="labelInputs" id="labelInputsRut">
                         <label for="rut">RUT</label>
-                        <input type="text" id="rut" name="rut">
+                        <input type="text" id="rut" name="rut" required>
                     </div>
                     <div class="labelInputs" id="labelInputsMail">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email">
+                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="labelInputs">
                         <label for="region">Región</label>
-                        <select id="region" name="region">
+                        <select id="region" name="region" required>
                             <option value>Seleccione una región</option>
                             <!-- regiones -->
                             <?php
@@ -55,14 +55,14 @@
                     </div>
                     <div class="labelInputs">
                         <label for="comuna">Comuna</label>
-                        <select id="comuna" name="comuna">
+                        <select id="comuna" name="comuna" required>
                             <option value="">Seleccione una comuna</option>
                             <!-- comunas -->
                         </select>
                     </div>
                     <div class="labelInputs">
                         <label for="candidato">Candidato</label>
-                        <select id="candidato" name="candidato">
+                        <select id="candidato" name="candidato" required>
                             <option value>Seleccione un candidato</option>
                             <!-- candidatos -->
                             <?php
@@ -79,23 +79,23 @@
                         <div class="opciones">
                             <div class="opcionesUnitarias">
                                 <input type="checkbox" id="web" name="web" value="web">
-                                <label for="web">Web</label>
+                                <label for="web"><span>Web</span></label>
                             </div>
                             <div class="opcionesUnitarias">
                                 <input type="checkbox" id="tv" name="tv" value="tv">
-                                <label for="tv">TV</label>
+                                <label for="tv"><span>TV</span></label>
                             </div>
                             <div class="opcionesUnitarias">
                                 <input type="checkbox" id="redes_sociales" name="redes_sociales" value="redes_sociales">
-                                <label for="redes_sociales">Redes
-                                    Sociales</label>
+                                <label for="redes_sociales"><span>Redes Sociales</span></label>
                             </div>
                             <div class="opcionesUnitarias">
                                 <input type="checkbox" id="amigo" name="amigo" value="amigo">
-                                <label for="amigo">Amigo</label>
+                                <label for="amigo"><span>Amigo</span></label>
                             </div>
                         </div>
-                    </div>
+                        
+                    </div><div id="mensajeCheckbox" style="color: red;"></div>
                 </div>
                 <button type="submit">Votar</button>
             </form>
