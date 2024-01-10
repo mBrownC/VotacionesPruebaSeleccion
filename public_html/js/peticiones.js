@@ -1,7 +1,6 @@
 const slcRegion = document.getElementById('region')
 slcRegion.addEventListener('change', getComuna)
 slcComuna = document.getElementById('comuna')
-
 function fetchAndSendData(url, formData, targetElement) {
     return fetch(url, {
         method: 'POST',
@@ -14,7 +13,6 @@ function fetchAndSendData(url, formData, targetElement) {
         })
         .catch(err => console.log(err))
 }
-
 function getComuna() {
     let region_id = slcRegion.value;
     let url = '/VotacionPrueba/backend/getRegiones.php'

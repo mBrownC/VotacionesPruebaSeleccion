@@ -7,53 +7,52 @@ const expresiones = {
     mail: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
 }
 const validarFormulario = (evento) => {
-    switch (evento.target.name){
+    switch (evento.target.name) {
         case 'nombre':
-            if(expresiones.nombre.test(evento.target.value)){
+            if (expresiones.nombre.test(evento.target.value)) {
                 document.getElementById('labelInputsNombre').classList.remove('inputerror');
                 document.getElementById('labelInputsNombre').classList.add('inputok');
-            }else{
+            } else {
                 document.getElementById('labelInputsNombre').classList.add('inputerror');
                 document.getElementById('labelInputsNombre').classList.remove('inputok');
             }
-        break;
+            break;
         case 'alias':
-            if(expresiones.alias.test(evento.target.value)){
+            if (expresiones.alias.test(evento.target.value)) {
                 document.getElementById('labelInputsAlias').classList.remove('inputerror');
                 document.getElementById('labelInputsAlias').classList.add('inputok');
-            }else{
+            } else {
                 document.getElementById('labelInputsAlias').classList.add('inputerror');
                 document.getElementById('labelInputsAlias').classList.remove('inputok');
             }
-        break;
-        break;
+            break;
+            break;
         case 'rut':
-            if(expresiones.rut.test(evento.target.value)){
+            if (expresiones.rut.test(evento.target.value)) {
                 document.getElementById('labelInputsRut').classList.remove('inputerror');
                 document.getElementById('labelInputsRut').classList.add('inputok');
-            }else{
+            } else {
                 document.getElementById('labelInputsRut').classList.add('inputerror');
                 document.getElementById('labelInputsRut').classList.remove('inputok');
             }
-        break;
+            break;
         case 'email':
-            case 'rut':
-                if(expresiones.mail.test(evento.target.value)){
-                    document.getElementById('labelInputsMail').classList.remove('inputerror');
-                    document.getElementById('labelInputsMail').classList.add('inputok');
-                }else{
-                    document.getElementById('labelInputsMail').classList.add('inputerror');
-                    document.getElementById('labelInputsMail').classList.remove('inputok');
-                }
-        break;
+        case 'rut':
+            if (expresiones.mail.test(evento.target.value)) {
+                document.getElementById('labelInputsMail').classList.remove('inputerror');
+                document.getElementById('labelInputsMail').classList.add('inputok');
+            } else {
+                document.getElementById('labelInputsMail').classList.add('inputerror');
+                document.getElementById('labelInputsMail').classList.remove('inputok');
+            }
+            break;
     }
 }
 inputs.forEach((input) => {
-        input.addEventListener('keyup', validarFormulario)
-        input.addEventListener('blur', validarFormulario)
-    }
+    input.addEventListener('keyup', validarFormulario)
+    input.addEventListener('blur', validarFormulario)
+}
 )
-
 formulario.addEventListener('submit', (evento) => {
     evento.preventDefault()
 })

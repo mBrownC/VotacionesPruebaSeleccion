@@ -1,15 +1,12 @@
     <?php
     $mysqli = include_once('C:\xampp\htdocs\VotacionPrueba\backend\conexion.php');
-
     if ($mysqli instanceof mysqli) {
         $comunas = $mysqli->query('SELECT * FROM region');
         $candidatos = $mysqli->query('SELECT * FROM candidato');
     } else {
         echo "Error en la conexión";
     }
-
     ?>
-
     <!DOCTYPE html>
     <html lang="es">
 
@@ -30,7 +27,6 @@
                         <label for="nombre">Nombre y Apellido</label>
                         <input type="text" id="nombre" name="nombre">
                     </div>
-
                     <div class="labelInputs" id="labelInputsAlias">
                         <label for="alias">Alias</label>
                         <input type="text" id="alias" name="alias">
@@ -62,9 +58,6 @@
                         <select id="comuna" name="comuna">
                             <option value="">Seleccione una comuna</option>
                             <!-- comunas -->
-
-
-
                         </select>
                     </div>
                     <div class="labelInputs">
