@@ -1,8 +1,8 @@
 <?php
-$host = "127.0.0.1";
-$usuario = "mbrown";
-$contrasenia = "Migmac080520";
-$base_de_datos = "votacion_prueba";
+$host = "url servidor";
+$usuario = "usuarioBBDD";
+$contrasenia = "Pass BBDD";
+$base_de_datos = "Nombre BBDD";
 $mysqli = new mysqli($host, $usuario, $contrasenia, $base_de_datos);
 $mysqli -> set_charset("utf8");
 if ($mysqli->connect_error) {
