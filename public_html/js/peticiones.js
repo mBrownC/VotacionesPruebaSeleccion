@@ -19,7 +19,7 @@ function fetchAndSendData(url, formData, targetElement) {
 // función que toma el id de la region desde el php getregion
 function getComuna() {
     let region_id = slcRegion.value;
-    let url = '/VotacionPrueba/backend/getRegiones.php'
+    let url = '..backend/getRegiones.php'
     let formData = new FormData()
     formData.append('id_region', region_id)
     fetchAndSendData(url, formData, slcComuna)
