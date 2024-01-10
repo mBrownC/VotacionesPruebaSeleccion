@@ -1,11 +1,15 @@
-const formulario = document.getElementById('formulario')
-const inputs = document.querySelectorAll('#formulario input, select')
+const formulario = document.getElementById('formulario');
+const inputs = document.querySelectorAll('#formulario input, select');
+
+// Declaración de expresiones regulares para validación de campos
 const expresiones = {
     nombre: /^[a-zA-ZÀ-ÿ\s]{3,}$/,
     alias: /^[a-zA-Z0-9_-]{5,}$/,
     rut: /^[-0-9.]{9,12}$/,
     mail: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
 }
+
+// Validación de campos según expresiones regulares
 const validarFormulario = (evento) => {
     switch (evento.target.name) {
         case 'nombre':
@@ -26,7 +30,6 @@ const validarFormulario = (evento) => {
                 document.getElementById('labelInputsAlias').classList.remove('inputok');
             }
             break;
-            break;
         case 'rut':
             if (expresiones.rut.test(evento.target.value)) {
                 document.getElementById('labelInputsRut').classList.remove('inputerror');
@@ -37,7 +40,6 @@ const validarFormulario = (evento) => {
             }
             break;
         case 'email':
-        case 'rut':
             if (expresiones.mail.test(evento.target.value)) {
                 document.getElementById('labelInputsMail').classList.remove('inputerror');
                 document.getElementById('labelInputsMail').classList.add('inputok');
@@ -48,6 +50,7 @@ const validarFormulario = (evento) => {
             break;
     }
 }
+// validacion de minimo 2 checkbox tiqueados
 document.addEventListener('DOMContentLoaded', () => {
     const checkBoxes = document.querySelectorAll('input[type="checkbox"]');
     checkBoxes.forEach(checkbox => {
@@ -61,8 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+// escucha de eventos keyup y blur
 inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario)
     input.addEventListener('blur', validarFormulario)
-}
-)
+});

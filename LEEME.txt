@@ -1,0 +1,52 @@
+README - Sistema de Votación
+
+Bienvenido al Sistema de Votación, una aplicación web desarrollada para simplificar y asegurar el proceso electoral. A continuación, encontrarás los pasos detallados para instalar y configurar este proyecto de manera efectiva.
+
+Pasos para la Instalación:
+
+Requisitos Previos:
+
+Asegúrate de tener instalado un servidor web (por ejemplo, Apache) y un sistema de gestión de bases de datos MySQL en tu entorno de desarrollo.
+
+Descarga del Proyecto:
+
+Clona este repositorio desde el siguiente enlace: https://github.com/mBrownC/VotacionesPruebaSeleccion
+
+o descargar el zip del repositorio, descomprimirlo y mover a la carpeta htdocs en su ambiente local.
+
+Configuración de la Base de Datos:
+
+Importa el script de la base de datos desde el archivo votacion_prueba.sql ubicado en la carpeta database. Este script creará las tablas necesarias y cargará datos iniciales.
+
+Configuración de Conexión a la Base de Datos:
+
+En la carpeta Backend, encuentra el archivo Conexion.php.
+
+Modifica los parámetros de conexión según la configuración de tu servidor MySQL, lineas de la 3 a la 6 en el archivo mencionado.
+
+$host = "url servidor";
+$usuario = "usuarioBBDD";
+$contrasenia = "Pass BBDD";
+$base_de_datos = "Nombre BBDD";
+
+
+Configuración del Servidor Web:
+
+Asegúrate de que la carpeta raíz del proyecto sea accesible a través de tu servidor web. Puedes configurar virtual hosts si es necesario.
+
+Acceso a la Aplicación:
+
+Abre tu navegador web y navega a la página principal del proyecto localhost/VotacionesPruebaSeleccion/index.php (url dependera de la configuracion de su servidor php).
+
+
+Estructura de Archivos:
+
+Explora la carpeta raíz para comprender la estructura del proyecto, con carpetas como Backend para la lógica backend y public_html para archivos públicos accesibles.
+
+Tecnologías Utilizadas:
+
+Este proyecto utiliza PHP (Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12), JavaScript, MySQL (libmysql - mysqlnd 8.2.12) y AJAX para proporcionar una experiencia de votación segura y eficiente.
+
+Seguridad:
+
+La aplicación implementa medidas de seguridad, como la validación de duplicidad de votos por RUT y la prevención de inyección SQL.
