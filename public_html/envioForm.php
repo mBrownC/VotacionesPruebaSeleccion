@@ -1,7 +1,7 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    include_once('C:\xampp\htdocs\VotacionPrueba\backend\conexion.php');
+    include_once('..backend\conexion.php');
     if ($mysqli instanceof mysqli) {
         // verificacion si el rut ya voto antes 
         $rut = $_POST['rut'];
